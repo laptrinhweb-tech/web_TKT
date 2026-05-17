@@ -1,0 +1,253 @@
+@import url('_base.css');
+
+.about-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 40px 70px;
+}
+
+/* ── FEATURES ── */
+.about-feats {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  margin-bottom: 70px;
+}
+
+.af-item {
+  padding: 28px 16px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+  transition: background var(--tr);
+}
+
+.af-item:last-child {
+  border-right: none;
+}
+
+.af-item:hover {
+  background: var(--gray-100);
+}
+
+.af-icon {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.af-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+/* ── STORY ── */
+.about-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+.story-tag {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 2px;
+  margin-bottom: 18px;
+}
+
+.story-h2 {
+  font-family: var(--dp);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.story-p {
+  font-size: 15px;
+  color: var(--gray-700);
+  line-height: 1.9;
+  margin-bottom: 14px;
+}
+
+.story-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 28px;
+  background: var(--black);
+  color: #fff;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background var(--tr);
+}
+
+.story-btn:hover {
+  background: var(--red);
+}
+
+.about-visual {
+  border-radius: var(--r-lg);
+  height: 380px;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── STATS ── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  margin-bottom: 70px;
+}
+
+.stat-box {
+  background: var(--white);
+  padding: 36px 24px;
+  text-align: center;
+}
+
+.stat-num {
+  font-family: var(--dp);
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--red);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-lbl {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── TEAM ── */
+.team-section {
+  margin-bottom: 70px;
+}
+
+.section-title {
+  font-family: var(--dp);
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.section-sub {
+  font-size: 14px;
+  color: var(--gray-500);
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.team-bar {
+  width: 36px;
+  height: 3px;
+  background: var(--red);
+  margin: 10px auto 36px;
+}
+
+.team-card {
+  background: var(--gray-100);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  text-align: center;
+  transition: box-shadow var(--tr), transform var(--tr);
+}
+
+.team-card:hover {
+  box-shadow: var(--sh-lg);
+  transform: translateY(-4px);
+}
+
+.team-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.team-avatar.red {
+  background: var(--red);
+}
+
+.team-avatar.black {
+  background: var(--black);
+}
+
+.team-name {
+  font-family: var(--dp);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.team-role {
+  font-size: 13px;
+  color: var(--red);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.team-desc {
+  font-size: 13.5px;
+  color: var(--gray-500);
+  line-height: 1.7;
+}
+
+/* ── RESPONSIVE MEDIA QUERIES ── */
+@media (max-width: 1000px) {
+  .about-wrap {
+    padding: 40px 20px;
+  }
+  .about-feats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .about-story {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .about-feats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stats-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .g3 {
+    grid-template-columns: 1fr;
+  }
+}

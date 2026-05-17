@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sản Phẩm — TKT Fashion</title>
+  <link rel="stylesheet" href="product.css">
+</head>
+<body>
+
+  <div class="topbar">Hotline: <b>0888 566 599</b> (8:30–21:30) &nbsp;|&nbsp; Miễn phí vận chuyển đơn từ 500k</div>
+
+  <nav class="navbar">
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="nav-brand">T<span>K</span>T</a>
+    
+    <div class="nav-links">
+      <a href="index.html">Trang Chủ</a>
+      <a href="product.html" class="active">Sản Phẩm</a>
+      <a href="about.html">Về Chúng Tôi</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Liên Hệ</a>
+    </div>
+    <div class="nav-actions">
+      <form class="search-wrap" action="search.html" method="GET">
+        <input type="text" name="query" placeholder="Tìm kiếm...">
+        <button type="submit">🔍</button>
+      </form>
+      <a href="login.html" class="btn-outline">Đăng Nhập</a>
+      <a href="register.html" class="btn-red">Đăng Ký</a>
+      <a href="cart.html" class="btn-cart">🛒 <span class="btn-cart-text">Giỏ Hàng</span> <span class="cart-badge" id="cart-count">0</span></a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb">
+    <a href="index.html">Trang chủ</a> / <span>Sản phẩm</span>
+  </div>
+
+  <div class="product-page">
+    <!-- SIDEBAR: CHỈ LỌC DANH MỤC -->
+    <aside class="sidebar">
+      <div class="sb-header">Danh Mục</div>
+      <div class="sb-section">
+        <div class="sb-title">Chọn Danh Mục</div>
+        <button class="sb-btn" onclick="filterCat('all', this)">🏪 Tất Cả Sản Phẩm</button>
+        <button class="sb-btn" onclick="filterCat('ao-nam', this)">👔 Áo Nam</button>
+        <button class="sb-btn" onclick="filterCat('quan-nam', this)">👖 Quần Nam</button>
+        <button class="sb-btn" onclick="filterCat('phu-kien', this)">🎒 Phụ Kiện</button>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+      <div class="sort-bar">
+        <span class="count">
+          <strong id="cat-name">Tất Cả Sản Phẩm</strong>&nbsp;<span id="prod-count">0</span> sản phẩm
+        </span>
+        <span class="sort-right">
+          <span class="sort-label">Sắp xếp</span>
+          <select class="sort-select" onchange="sortProducts(this.value)">
+            <option value="">Sản phẩm nổi bật</option>
+            <option value="asc">Giá tăng dần</option>
+            <option value="desc">Giá giảm dần</option>
+            <option value="name">Tên A–Z</option>
+          </select>
+        </span>
+      </div>
+
+      <!-- TẤT CẢ SẢN PHẨM -->
+      <div class="cat-section" id="sec-all" style="display:none">
+        <div class="g4" id="grid-all"></div>
+      </div>
+
+      <!-- ÁO NAM -->
+      <div class="cat-section" id="sec-ao-nam" data-cat="ao-nam" style="display:none">
+        <div class="g4">
+          <div class="product-card" data-price="220000" data-name="Áo da nam">
+            <div class="pc-img">
+              <img src="img/aodanam.jpg" alt="">
+              <span class="pc-badge">Hot</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Áo da nam</p>
+              <p class="pc-price">220.000đ <s>280.000đ</s></p>
+              <button class="btn-atc" onclick="addCart('Áo da nam','220.000đ','img/aodanam.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="230000" data-name="Áo cộc tay kẻ">
+            <div class="pc-img">
+              <img src="img/aococtayke.png" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Áo cộc tay kẻ</p>
+              <p class="pc-price">230.000đ</p>
+              <button class="btn-atc" onclick="addCart('Áo cộc tay kẻ','230.000đ','img/aococtayke.png')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="245000" data-name="Áo polo trắng cộc tay">
+            <div class="pc-img">
+              <img src="img/aopolonam.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Áo polo trắng cộc tay</p>
+              <p class="pc-price">245.000đ</p>
+              <button class="btn-atc" onclick="addCart('Áo polo trắng cộc tay','245.000đ','img/aopolonam.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="260000" data-name="Áo sơ mi trắng phối cổ đen">
+            <div class="pc-img">
+              <img src="img/aosomicoden.jpg" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Áo sơ mi trắng phối cổ đen</p>
+              <p class="pc-price">260.000đ</p>
+              <button class="btn-atc" onclick="addCart('Áo sơ mi trắng phối cổ đen','260.000đ','img/aosomicoden.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="350000" data-name="Áo thun cộc tay">
+            <div class="pc-img">
+              <img src="img/aophongcotron.webp" alt="">
+              <span class="pc-badge">Mới</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Áo thun cộc tay</p>
+              <p class="pc-price">350.000đ</p>
+              <button class="btn-atc" onclick="addCart('Áo thun cộc tay','350.000đ','img/aophongcotron.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="380000" data-name="Áo phong cách thể thao">
+            <div class="pc-img">
+              <img src="img/aothethao.jpg" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Áo phong cách thể thao</p>
+              <p class="pc-price">380.000đ</p>
+              <button class="btn-atc" onclick="addCart('Áo phong cách thể thao','380.000đ','img/aothethao.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="200000" data-name="Áo Bomber nam 2 lớp">
+            <div class="pc-img">
+              <img src="img/aobomber.jpg" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Áo Bomber nam 2 lớp</p>
+              <p class="pc-price">200.000đ</p>
+              <button class="btn-atc" onclick="addCart('Áo Bomber nam 2 lớp','200.000đ','img/aobomber.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="210000" data-name="Áo Vest nam lịch lãm">
+            <div class="pc-img">
+              <img src="img/aovest.jpg" alt="">
+              <span class="pc-badge">Hot</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Áo Vest nam lịch lãm</p>
+              <p class="pc-price">210.000đ</p>
+              <button class="btn-atc" onclick="addCart('Áo Vest nam lịch lãm','210.000đ','img/aovest.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="195000" data-name="Áo khoác logo cá sấu">
+            <div class="pc-img">
+              <img src="img/aocasau.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Áo khoác logo cá sấu</p>
+              <p class="pc-price">195.000đ</p>
+              <button class="btn-atc" onclick="addCart('Áo khoác logo cá sấu','195.000đ','img/aocasau.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="400000" data-name="Áo polo xám cộc tay">
+            <div class="pc-img">
+              <img src="img/aopoloxam.webp" alt="">
+              <span class="pc-badge">Mới</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Áo polo xám cộc tay</p>
+              <p class="pc-price">400.000đ</p>
+              <button class="btn-atc" onclick="addCart('Áo polo xám cộc tay','400.000đ','img/aopoloxam.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="550000" data-name="Áo sơ mi kẻ phối tay">
+            <div class="pc-img">
+              <img src="img/somiketay.jpg" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Áo sơ mi kẻ phối tay</p>
+              <p class="pc-price">550.000đ</p>
+              <button class="btn-atc" onclick="addCart('Áo sơ mi kẻ phối tay','550.000đ','img/somiketay.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="480000" data-name="Áo sơ mi cổ trụ">
+            <div class="pc-img">
+              <img src="img/somicotru.jpg" alt="">
+              <span class="pc-badge">Sale</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Áo sơ mi cổ trụ</p>
+              <p class="pc-price">480.000đ <s style="color:#999;font-size:13px;font-weight:400">650.000đ</s></p>
+              <button class="btn-atc" onclick="addCart('Áo sơ mi cổ trụ','480.000đ','img/somicotru.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUẦN NAM -->
+      <div class="cat-section" id="sec-quan-nam" data-cat="quan-nam" style="display:none">
+        <div class="g4">
+          <div class="product-card" data-price="300000" data-name="Quần Jeans Smart Fit">
+            <div class="pc-img">
+              <img src="img/jeanssmartfit.jpg" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Jeans Smart Fit</p>
+              <p class="pc-price">300.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Jeans Smart Fit','300.000đ','img/jeanssmartfit.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="320000" data-name="Jeans Sidetab Xanh Đậm">
+            <div class="pc-img">
+              <img src="img/jeanssidetapxanhdam.webp" alt="">
+              <span class="pc-badge">Sale</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Jeans Sidetab Xanh Đậm</p>
+              <p class="pc-price">320.000đ <s>420.000đ</s></p>
+              <button class="btn-atc" onclick="addCart('Jeans Sidetab Xanh Đậm','320.000đ','img/jeanssidetapxanhdam.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="340000" data-name="Jeans Slim Fit Đen">
+            <div class="pc-img">
+              <img src="img/jeansslimfitden.jpg" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Jeans Slim Fit Đen</p>
+              <p class="pc-price">340.000đ</p>
+              <button class="btn-atc" onclick="addCart('Jeans Slim Fit Đen','340.000đ','img/jeansslimfitden.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="260000" data-name="Quần Kaki Công Sở">
+            <div class="pc-img">
+              <img src="img/quankakicongso.jpg" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Kaki Công Sở</p>
+              <p class="pc-price">260.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Kaki Công Sở','260.000đ','img/quankakicongso.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="280000" data-name="Jeans Straight Fit">
+            <div class="pc-img">
+              <img src="img/jeansstraightfit.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Jeans Straight Fit</p>
+              <p class="pc-price">280.000đ</p>
+              <button class="btn-atc" onclick="addCart('Jeans Straight Fit','280.000đ','img/jeansstraightfit.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="350000" data-name="Quần Âu Slim Fit">
+            <div class="pc-img">
+              <img src="img/quanauslimfit.webp" alt="">
+              <span class="pc-badge">Mới</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Âu Slim Fit</p>
+              <p class="pc-price">350.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Âu Slim Fit','350.000đ','img/quanauslimfit.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="290000" data-name="Quần Jeans Baggy">
+            <div class="pc-img">
+              <img src="img/jeansbaggy.jpg" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Jeans Baggy</p>
+              <p class="pc-price">290.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Jeans Baggy','290.000đ','img/jeansbaggy.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="310000" data-name="Quần Short Kaki Mùa Hè">
+            <div class="pc-img">
+              <img src="img/shortkakimuahe.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Short Kaki Mùa Hè</p>
+              <p class="pc-price">310.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Short Kaki Mùa Hè','310.000đ','img/shortkakimuahe.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="370000" data-name="Quần Âu Kẻ Sọc">
+            <div class="pc-img">
+              <img src="img/quanaukesoc.jpg" alt="">
+              <span class="pc-badge">Hot</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Âu Kẻ Sọc Công Sở</p>
+              <p class="pc-price">370.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Âu Kẻ Sọc Công Sở','370.000đ','img/quanaukesoc.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="420000" data-name="Quần Len Thu Đông">
+            <div class="pc-img">
+              <img src="img/quanlenthudong.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Len Thu Đông</p>
+              <p class="pc-price">420.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Len Thu Đông','420.000đ','img/quanlenthudong.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="240000" data-name="Quần Cargo Streetwear">
+            <div class="pc-img">
+              <img src="img/quancargostreetwear.jpg" alt="">
+              <span class="pc-badge">Mới</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Cargo Streetwear</p>
+              <p class="pc-price">240.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Cargo Streetwear','240.000đ','img/quancargostreetwear.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="330000" data-name="Quần Jeans Cạp Cao">
+            <div class="pc-img">
+              <img src="img/jeanscapcao.jpg" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Jeans Cạp Cao</p>
+              <p class="pc-price">330.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Jeans Cạp Cao','330.000đ','img/jeanscapcao.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="255000" data-name="Quần Short Denim">
+            <div class="pc-img">
+              <img src="img/shortdemi.png" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Short Denim</p>
+              <p class="pc-price">255.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Short Denim','255.000đ','img/shortdemi.png')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="395000" data-name="Quần Âu Cashmere">
+            <div class="pc-img">
+              <img src="img/quanaucasshmer.webp" alt="">
+              <span class="pc-badge">Mới</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Âu Cashmere</p>
+              <p class="pc-price">395.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Âu Cashmere','395.000đ','img/quanaucasshmer.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="270000" data-name="Quần Jogger Thun">
+            <div class="pc-img">
+              <img src="img/joggerthun.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Jogger Thun</p>
+              <p class="pc-price">270.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Jogger Thun','270.000đ','img/joggerthun.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="345000" data-name="Quần Jeans Ripped Gối">
+            <div class="pc-img">
+              <img src="img/jeansripperrachgoi.jpg" alt="">
+              <span class="pc-badge">Hot</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Jeans Ripped Gối</p>
+              <p class="pc-price">345.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Jeans Ripped Gối','345.000đ','img/jeansripperrachgoi.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="315000" data-name="Quần Kaki Slim Fit">
+            <div class="pc-img">
+              <img src="img/quankakislimfit.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Kaki Slim Fit</p>
+              <p class="pc-price">315.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Kaki Slim Fit','315.000đ','img/quankakislimfit.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="380000" data-name="Quần Âu Linen Mùa Hè">
+            <div class="pc-img">
+              <img src="img/quanlienmuahe.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Âu Linen Mùa Hè</p>
+              <p class="pc-price">380.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Âu Linen Mùa Hè','380.000đ','img/quanlienmuahe.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="295000" data-name="Quần Short Thể Thao">
+            <div class="pc-img">
+              <img src="img/shortthethao.jpg" alt="">
+              <span class="pc-badge">Sale</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Short Thể Thao</p>
+              <p class="pc-price">295.000đ <s>380.000đ</s></p>
+              <button class="btn-atc" onclick="addCart('Quần Short Thể Thao','295.000đ','img/shortthethao.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="360000" data-name="Quần Jeans Wash Nhạt">
+            <div class="pc-img">
+              <img src="img/jeanswashnhat.jpg" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Quần Jeans Wash Nhạt</p>
+              <p class="pc-price">360.000đ</p>
+              <button class="btn-atc" onclick="addCart('Quần Jeans Wash Nhạt','360.000đ','img/jeanswashnhat.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHỤ KIỆN -->
+      <div class="cat-section" id="sec-phu-kien" data-cat="phu-kien" style="display:none">
+        <div class="g4">
+          <div class="product-card" data-price="150000" data-name="Thắt Lưng Da Cao Cấp">
+            <div class="pc-img">
+              <img src="img/thatlungdacaocap.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Thắt Lưng Da Cao Cấp</p>
+              <p class="pc-price">150.000đ</p>
+              <button class="btn-atc" onclick="addCart('Thắt Lưng Da Cao Cấp','150.000đ','img/thatlungdacaocap.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="180000" data-name="Mũ Lưỡi Trai TKT">
+            <div class="pc-img">
+              <img src="img/muluoitrai.webp" alt="">
+              <span class="pc-badge">Mới</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Mũ Lưỡi Trai TKT</p>
+              <p class="pc-price">180.000đ</p>
+              <button class="btn-atc" onclick="addCart('Mũ Lưỡi Trai TKT','180.000đ','img/muluoitrai.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="250000" data-name="Ví Da Nam Slim">
+            <div class="pc-img">
+              <img src="img/vidanam.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Ví Da Nam Slim</p>
+              <p class="pc-price">250.000đ</p>
+              <button class="btn-atc" onclick="addCart('Ví Da Nam Slim','250.000đ','img/vidanam.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="320000" data-name="Đồng Hồ Dây Da TKT">
+            <div class="pc-img">
+              <img src="img/donghodayda.webp" alt="">
+              <span class="pc-badge">Hot</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Đồng Hồ Dây Da TKT</p>
+              <p class="pc-price">320.000đ</p>
+              <button class="btn-atc" onclick="addCart('Đồng Hồ Dây Da TKT','320.000đ','img/donghodayda.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="95000" data-name="Khăn Quàng Cổ Len">
+            <div class="pc-img">
+              <img src="img/khanquangcolen.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Khăn Quàng Cổ Len</p>
+              <p class="pc-price">95.000đ</p>
+              <button class="btn-atc" onclick="addCart('Khăn Quàng Cổ Len','95.000đ','img/khanquangcolen.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="120000" data-name="Vớ Nam Cao Cấp">
+            <div class="pc-img">
+              <img src="img/vonamcaocap.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Vớ Nam Cao Cấp (5 đôi)</p>
+              <p class="pc-price">120.000đ</p>
+              <button class="btn-atc" onclick="addCart('Vớ Nam Cao Cấp','120.000đ','img/vonamcaocap.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="200000" data-name="Kính Mát UV400">
+            <div class="pc-img">
+              <img src="img/kinhmatuv400.webp" alt="">
+              <span class="pc-badge">Mới</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Kính Mát UV400</p>
+              <p class="pc-price">200.000đ</p>
+              <button class="btn-atc" onclick="addCart('Kính Mát UV400','200.000đ','img/kinhmatuv400.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="280000" data-name="Túi Tote Canvas TKT">
+            <div class="pc-img">
+              <img src="img/tuitotecanvas.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Túi Tote Canvas TKT</p>
+              <p class="pc-price">280.000đ</p>
+              <button class="btn-atc" onclick="addCart('Túi Tote Canvas TKT','280.000đ','img/tuitotecanvas.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="165000" data-name="Nón Bucket TKT">
+            <div class="pc-img">
+              <img src="img/nonbucket.webp" alt="">
+              <span class="pc-badge">Mới</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Nón Bucket TKT</p>
+              <p class="pc-price">165.000đ</p>
+              <button class="btn-atc" onclick="addCart('Nón Bucket TKT','165.000đ','img/nonbucket.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="350000" data-name="Túi Messenger Da">
+            <div class="pc-img">
+              <img src="img/tuida.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Túi Messenger Da</p>
+              <p class="pc-price">350.000đ</p>
+              <button class="btn-atc" onclick="addCart('Túi Messenger Da','350.000đ','img/tuida.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="85000" data-name="Dây Buộc Tóc Nam">
+            <div class="pc-img">
+              <img src="img/daybuoctocnam.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Vòng Tay Da Bện</p>
+              <p class="pc-price">85.000đ</p>
+              <button class="btn-atc" onclick="addCart('Vòng Tay Da Bện','85.000đ','img/daybuoctocnam.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="420000" data-name="Đồng Hồ Minimalist">
+            <div class="pc-img">
+              <img src="img/donghominimalist.webp" alt="">
+              <span class="pc-badge">Hot</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Đồng Hồ Minimalist</p>
+              <p class="pc-price">420.000đ</p>
+              <button class="btn-atc" onclick="addCart('Đồng Hồ Minimalist','420.000đ','img/donghominimalist.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="135000" data-name="Cà Vạt Lụa Công Sở">
+            <div class="pc-img">
+              <img src="img/cavatluacongso.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Cà Vạt Lụa Công Sở</p>
+              <p class="pc-price">135.000đ</p>
+              <button class="btn-atc" onclick="addCart('Cà Vạt Lụa Công Sở','135.000đ','img/cavatluacongso.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="195000" data-name="Kính Mát Gọng Tròn">
+            <div class="pc-img">
+              <img src="img/kinhmatgongtron.webp" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Kính Mát Gọng Tròn</p>
+              <p class="pc-price">195.000đ</p>
+              <button class="btn-atc" onclick="addCart('Kính Mát Gọng Tròn','195.000đ','img/kinhmatgongtron.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="290000" data-name="Balo Mini Streetwear">
+            <div class="pc-img">
+              <img src="img/balomini.webp" alt="">
+              <span class="pc-badge">Mới</span>
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Balo Mini Streetwear</p>
+              <p class="pc-price">290.000đ</p>
+              <button class="btn-atc" onclick="addCart('Balo Mini Streetwear','290.000đ','img/balomini.webp')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card" data-price="75000" data-name="Tất Cổ Cao Len Mùa Đông">
+            <div class="pc-img">
+              <img src="img/tatnamcocao.jpg" alt="">
+            </div>
+            <div class="pc-body">
+              <p class="pc-name">Tất Cổ Cao Len Mùa Đông</p>
+              <p class="pc-price">75.000đ</p>
+              <button class="btn-atc" onclick="addCart('Tất Cổ Cao Len Mùa Đông','75.000đ','img/tatnamcocao.jpg')">+ Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">T<span>K</span>T</div>
+        <p class="footer-desc">Hệ thống thời trang hướng tới phong cách nam tính, lịch lãm và trẻ trung. Chất lượng luôn là ưu tiên hàng đầu.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Nhóm Liên Kết</h4>
+        <ul>
+          <li onclick="location.href='index.html'">Trang chủ</li>
+          <li onclick="location.href='product.html'">Sản phẩm mới</li>
+          <li onclick="location.href='about.html'">Về chúng tôi</li>
+          <li onclick="location.href='blog.html'">Blog thời trang</li>
+          <li onclick="location.href='contact.html'">Liên hệ</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Thông Tin Liên Hệ</h4>
+        <p>📍 TP. Hồ Chí Minh, Việt Nam</p>
+        <p>📞 0888 566 599</p>
+        <p>✉️ tkt.fashion@gmail.com</p>
+        <p>🕘 08:30 – 21:30 (Mỗi ngày)</p>
+      </div>
+      <div class="footer-col">
+        <h4>Đăng Ký Nhận Tin</h4>
+        <p class="footer-sub-desc">Để cập nhật sản phẩm mới, nhận thông tin ưu đãi đặc biệt và giảm giá.</p>
+        <div class="footer-sub-form">
+          <input type="email" placeholder="Nhập email của bạn">
+          <button onclick="showToast('Đăng ký thành công! 🎉','green')">Đăng Ký</button>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-hr">
+    <div class="footer-bottom">
+      <span>© 2026 TKT Fashion. All rights reserved.</span>
+      <span>Thiết kế bởi TKT Team</span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    function getCart() {
+      return JSON.parse(localStorage.getItem('tkt_cart') || '[]');
+    }
+
+    function saveCart(c) {
+      localStorage.setItem('tkt_cart', JSON.stringify(c));
+    }
+
+    function updateBadge() {
+      const n = getCart().reduce((s, i) => s + i.qty, 0);
+      document.querySelectorAll('.cart-badge,#cart-count').forEach(el => el.textContent = n || 0);
+    }
+
+    function addCart(name, price) {
+      let c = getCart();
+      const ex = c.find(i => i.name === name);
+      if (ex) ex.qty++;
+      else c.push({ name, price, qty: 1 });
+      saveCart(c);
+      updateBadge();
+      showToast('Đã thêm "' + name + '" vào giỏ! 🛒');
+    }
+
+    function showToast(msg, type = '') {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'toast ' + (type || '');
+      setTimeout(() => t.classList.add('show'), 10);
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    const CAT_NAMES = {
+      'all': 'Tất Cả Sản Phẩm',
+      'ao-nam': 'Áo Nam',
+      'quan-nam': 'Quần Nam',
+      'phu-kien': 'Phụ Kiện'
+    };
+
+    function filterCat(cat, el) {
+      document.querySelectorAll('.sb-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('cat-name').textContent = CAT_NAMES[cat] || 'Sản Phẩm';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      const secAll = document.getElementById('sec-all');
+      const secs = ['sec-ao-nam', 'sec-quan-nam', 'sec-phu-kien'];
+
+      if (cat === 'all') {
+        // Ẩn các section riêng
+        secs.forEach(id => {
+          const s = document.getElementById(id);
+          if (s) s.style.display = 'none';
+        });
+        // Hiện section tất cả
+        secAll.style.display = 'block';
+        // Lấy tất cả cards từ 3 section, clone vào grid-all
+        const gridAll = document.getElementById('grid-all');
+        gridAll.innerHTML = '';
+        secs.forEach(id => {
+          const s = document.getElementById(id);
+          if (!s) return;
+          s.querySelectorAll('.product-card').forEach(card => {
+            const clone = card.cloneNode(true);
+            clone.style.display = 'flex';
+            gridAll.appendChild(clone);
+          });
+        });
+        const count = gridAll.querySelectorAll('.product-card').length;
+        document.getElementById('prod-count').textContent = count;
+        const pgW = secAll.querySelector('.prod-pgn');
+        if (pgW) pgW.innerHTML = '';
+        setTimeout(() => initPaginationGrid('grid-all', 'sec-all'), 50);
+      } else {
+        // Ẩn section tất cả
+        secAll.style.display = 'none';
+        let count = 0;
+        secs.forEach(id => {
+          const s = document.getElementById(id);
+          if (!s) return;
+          const show = (s.dataset.cat === cat);
+          s.style.display = show ? 'block' : 'none';
+          if (show) {
+            count = s.querySelectorAll('.product-card').length;
+            s.querySelectorAll('.product-card').forEach(c => c.style.display = 'flex');
+            const pgW = s.querySelector('.prod-pgn');
+            if (pgW) pgW.innerHTML = '';
+            setTimeout(() => initPagination(id), 50);
+          }
+        });
+        document.getElementById('prod-count').textContent = count;
+      }
+    }
+
+    // Pagination cho grid cụ thể (dùng cho sec-all)
+    function initPaginationGrid(gridId, secId) {
+      const grid = document.getElementById(gridId);
+      const sec = document.getElementById(secId);
+      if (!grid || !sec) return;
+      const allCards = [...grid.querySelectorAll('.product-card')];
+      const PER = 12;
+      const total = Math.ceil(allCards.length / PER);
+
+      let pgWrap = sec.querySelector('.prod-pgn');
+      if (!pgWrap) {
+        pgWrap = document.createElement('div');
+        pgWrap.className = 'prod-pgn';
+        grid.after(pgWrap);
+      }
+
+      function goAll(page, skipScroll) {
+        allCards.forEach((card, i) => {
+          card.style.display = (i >= (page - 1) * PER && i < page * PER) ? 'flex' : 'none';
+        });
+        let html = '';
+        for (let i = 1; i <= total; i++) {
+          html += `<button class="pgn-btn${i===page?' active':''}" onclick="goAllPage(${i})">${i}</button>`;
+        }
+        pgWrap.innerHTML = html;
+        if (!skipScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      window.goAllPage = (page) => goAll(page, false);
+      goAll(1, true);
+    }
+
+    function sortProducts(val) {
+      document.querySelectorAll('.cat-section').forEach(sec => {
+        const grid = sec.querySelector('.g4');
+        if (!grid) return;
+        const cards = [...grid.querySelectorAll('.product-card')];
+        cards.sort((a, b) => {
+          if (val === 'asc') return (parseInt(a.dataset.price) || 0) - (parseInt(b.dataset.price) || 0);
+          if (val === 'desc') return (parseInt(b.dataset.price) || 0) - (parseInt(a.dataset.price) || 0);
+          if (val === 'name') return (a.dataset.name || '').localeCompare(b.dataset.name || '', 'vi');
+          return 0;
+        });
+        cards.forEach(c => grid.appendChild(c));
+      });
+    }
+
+    // Auto filter nếu có ?cat= trên URL
+    const urlCat = new URLSearchParams(location.search).get('cat');
+    if (urlCat) {
+      const btn = document.querySelector(`.sb-btn[onclick*="${urlCat}"]`);
+      if (btn) setTimeout(() => filterCat(urlCat, btn), 100);
+    } else {
+      setTimeout(() => {
+        const allBtn = document.querySelector('.sb-btn[onclick*="all"]');
+        if (allBtn) filterCat('all', allBtn);
+      }, 100);
+    }
+
+    // ── PHÂN TRANG 12 SP/trang ──
+    function initPagination(secId) {
+      const sec = document.getElementById(secId);
+      if (!sec || sec.style.display === 'none') return;
+
+      const allCards = [...sec.querySelectorAll('.product-card')];
+      const PER = 12;
+      const total = Math.ceil(allCards.length / PER);
+      if (total <= 1) {
+        allCards.forEach(c => c.style.display = 'flex');
+        return;
+      }
+
+      let pgWrap = sec.querySelector('.prod-pgn');
+      if (!pgWrap) {
+        pgWrap = document.createElement('div');
+        pgWrap.className = 'prod-pgn';
+        sec.querySelector('.g4').after(pgWrap);
+      }
+
+      function go(page, skipScroll) {
+        allCards.forEach((card, i) => {
+          card.style.display = (i >= (page - 1) * PER && i < page * PER) ? 'flex' : 'none';
+        });
+        let html = '';
+        for (let i = 1; i <= total; i++) {
+          html += `<button class="pgn-btn${i===page?' active':''}" onclick="pg('${secId}',${i})">${i}</button>`;
+        }
+        pgWrap.innerHTML = html;
+        if (!skipScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      window.pg = function(sid, page) {
+        initPagination(sid);
+        const s = document.getElementById(sid);
+        const cards = [...s.querySelectorAll('.product-card')];
+        const tot = Math.ceil(cards.length / PER);
+        const p = Math.max(1, Math.min(page, tot));
+        cards.forEach((c, i) => {
+          c.style.display = (i >= (p - 1) * PER && i < p * PER) ? 'flex' : 'none';
+        });
+        let pgW = s.querySelector('.prod-pgn');
+        let h = '';
+        for (let i = 1; i <= tot; i++) h += `<button class="pgn-btn${i===p?' active':''}" onclick="pg('${sid}',${i})">${i}</button>`;
+        pgW.innerHTML = h;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      go(1, true);
+    }
+
+    // Mặc định chỉ hiện Áo Nam
+    ['sec-quan-nam', 'sec-phu-kien'].forEach(id => {
+      const s = document.getElementById(id);
+      if (s) s.style.display = 'none';
+    });
+
+    updateBadge();
+  </script>
+<script>
+(function(){
+  var btn = document.getElementById('nav-toggle');
+  var links = document.querySelector('.nav-links');
+  if(!btn || !links) return;
+  btn.addEventListener('click', function(){
+    btn.classList.toggle('open');
+    links.classList.toggle('open');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      btn.classList.remove('open');
+      links.classList.remove('open');
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var wrap = document.querySelector('.search-wrap');
+  var inp  = wrap ? wrap.querySelector('input') : null;
+  var btn  = wrap ? wrap.querySelector('button') : null;
+  if (!wrap || !inp || !btn) return;
+  function isMobile(){ return window.innerWidth <= 600; }
+  btn.addEventListener('click', function(e){
+    if (!isMobile()) return;
+    if (!wrap.classList.contains('expanded')) {
+      e.preventDefault();
+      wrap.classList.add('expanded');
+      inp.focus();
+    }
+    // nếu đã expanded và có text -> submit (form tự submit)
+    // nếu không có text -> đóng lại
+    else if (!inp.value.trim()) {
+      e.preventDefault();
+      wrap.classList.remove('expanded');
+    }
+  });
+  document.addEventListener('click', function(e){
+    if (isMobile() && !wrap.contains(e.target)){
+      wrap.classList.remove('expanded');
+    }
+  });
+})();
+</script>
+</body>
+</html>

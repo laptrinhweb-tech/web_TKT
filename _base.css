@@ -1,0 +1,794 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --red: #c0392b;
+  --red-dark: #962d22;
+  --black: #111;
+  --gray-700: #444;
+  --gray-500: #777;
+  --gray-300: #bbb;
+  --gray-100: #f5f5f5;
+  --white: #fff;
+  --border: #e8e8e8;
+  --dp: 'Playfair Display', Georgia, serif;
+  --bd: 'DM Sans', sans-serif;
+  --sh-sm: 0 2px 8px rgba(0, 0, 0, .07);
+  --sh-md: 0 6px 24px rgba(0, 0, 0, .10);
+  --sh-lg: 0 16px 48px rgba(0, 0, 0, .15);
+  --r: 4px;
+  --r-md: 8px;
+  --r-lg: 14px;
+  --tr: .22s ease;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--bd);
+  background: var(--white);
+  color: var(--black);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: var(--bd);
+  cursor: pointer;
+}
+
+input, textarea, select {
+  font-family: var(--bd);
+}
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--black);
+  color: rgba(255, 255, 255, .75);
+  font-size: 12.5px;
+  text-align: center;
+  padding: 9px 20px;
+  letter-spacing: .4px;
+}
+
+.topbar b {
+  color: #f5b7b1;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 36px;
+  height: 66px;
+  box-shadow: var(--sh-sm);
+  gap: 12px;
+}
+
+.nav-brand {
+  font-family: var(--dp);
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  color: var(--black);
+  flex-shrink: 0;
+}
+
+.nav-brand span {
+  color: var(--red);
+}
+
+.nav-links {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  gap: 2px;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  color: var(--gray-700);
+  padding: 8px 13px;
+  border-radius: var(--r);
+  transition: color var(--tr);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--red);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.search-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  overflow: hidden;
+  transition: border-color var(--tr);
+}
+
+.search-wrap:focus-within {
+  border-color: var(--red);
+}
+
+.search-wrap input {
+  border: none;
+  outline: none;
+  padding: 7px 14px;
+  font-size: 13px;
+  width: 155px;
+  background: transparent;
+}
+
+.search-wrap button {
+  background: none;
+  border: none;
+  padding: 7px 12px;
+  color: var(--gray-500);
+  font-size: 14px;
+  cursor: pointer;
+  transition: color var(--tr);
+}
+
+.search-wrap button:hover {
+  color: var(--red);
+}
+
+.btn-outline {
+  padding: 7px 16px;
+  border: 1.5px solid var(--gray-300);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-700);
+  transition: all var(--tr);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--black);
+  color: var(--black);
+}
+
+.btn-red {
+  padding: 7px 16px;
+  background: transparent;
+  color: var(--gray-700);
+  border: 1.5px solid var(--gray-300);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all var(--tr);
+  display: inline-block;
+}
+
+.btn-red:hover {
+  border-color: var(--black);
+  color: var(--black);
+}
+
+.btn-cart {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  background: transparent;
+  color: var(--gray-700);
+  border: 1.5px solid var(--gray-300);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all var(--tr);
+  position: relative;
+}
+
+.btn-cart:hover {
+  border-color: var(--black);
+  color: var(--black);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--red);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  padding: 0 3px;
+}
+
+/* ── BREADCRUMB ── */
+.breadcrumb {
+  padding: 12px 40px;
+  font-size: 13px;
+  color: var(--gray-500);
+  border-bottom: 1px solid var(--border);
+}
+
+.breadcrumb a {
+  color: var(--gray-500);
+  transition: color var(--tr);
+}
+
+.breadcrumb a:hover {
+  color: var(--red);
+}
+
+/* ── HERO BANNER ── */
+
+/* ── PRODUCT CARD ── */
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: box-shadow var(--tr), transform var(--tr);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  box-shadow: var(--sh-lg);
+  transform: translateY(-5px);
+}
+
+.pc-img {
+  height: 230px;
+  background: var(--gray-100);
+  overflow: hidden;
+  position: relative;
+}
+
+.pc-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .45s ease;
+}
+
+.product-card:hover .pc-img img {
+  transform: scale(1.06);
+}
+
+.pc-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--red);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 9px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.pc-body {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pc-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.pc-price {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--red);
+  margin-bottom: 14px;
+}
+
+.pc-price s {
+  color: var(--gray-300);
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 5px;
+}
+
+.btn-atc {
+  margin-top: auto;
+  width: 100%;
+  padding: 10px;
+  background: var(--black);
+  color: #fff;
+  border: none;
+  border-radius: var(--r);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  transition: background var(--tr);
+  cursor: pointer;
+}
+
+.btn-atc:hover {
+  background: var(--red);
+}
+
+/* ── GRIDS ── */
+.g4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.g3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.g2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+/* ── FEEDBACK ── */
+.feedback-banner {
+  background: var(--gray-100);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 56px 20px;
+  text-align: center;
+}
+
+.feedback-banner h2 {
+  font-family: var(--dp);
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.feedback-banner p {
+  color: var(--gray-500);
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+.fb-form {
+  display: flex;
+  max-width: 420px;
+  margin: 0 auto;
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  overflow: hidden;
+  background: var(--white);
+  transition: border-color var(--tr);
+}
+
+.fb-form:focus-within {
+  border-color: var(--red);
+}
+
+.fb-form input {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: transparent;
+}
+
+.fb-form button {
+  padding: 12px 26px;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--tr);
+}
+
+.fb-form button:hover {
+  background: var(--red-dark);
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: #f0f0f0;
+  color: #444;
+  padding: 60px 40px 28px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.footer-brand {
+  font-family: var(--dp);
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--black);
+  letter-spacing: 5px;
+  margin-bottom: 14px;
+}
+
+.footer-brand span {
+  color: var(--red);
+}
+
+.footer-desc {
+  font-size: 13.5px;
+  line-height: 1.8;
+}
+
+.footer-col h4 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  font-size: 13.5px;
+  line-height: 2.2;
+  color: #666;
+  cursor: pointer;
+  transition: color var(--tr);
+}
+
+.footer-col li:hover {
+  color: var(--red);
+}
+
+.footer-col p {
+  font-size: 13.5px;
+  line-height: 2;
+  color: #666;
+}
+
+.footer-hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  max-width: 1200px;
+  margin: 0 auto 20px;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: #999;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── TOAST ── */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: var(--black);
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: var(--r-md);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: var(--sh-lg);
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .3s ease, transform .3s ease;
+  pointer-events: none;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: none;
+}
+
+.toast.green {
+  background: #27ae60;
+}
+
+.toast.red {
+  background: var(--red);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px) {
+  .g4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+@media(max-width:900px) {
+  .navbar {
+    padding: 10px 16px;
+    height: auto;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .nav-brand {
+    flex: 1;
+  }
+  .nav-actions {
+    order: 1;
+    gap: 6px;
+  }
+  .nav-links {
+    order: 2;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+    border-top: 1px solid var(--border);
+    padding-top: 6px;
+  }
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-links a {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .breadcrumb {
+    padding: 10px 16px;
+  }
+}
+
+/* ── HAMBURGER (chỉ mobile ≤600px) ── */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-direction: column;
+  gap: 5px;
+  flex-shrink: 0;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--black);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media(max-width:600px) {
+  .g4, .g3 {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer {
+    padding: 40px 20px 20px;
+  }
+  .navbar {
+    padding: 10px 12px;
+    flex-wrap: nowrap;
+    height: auto;
+    gap: 6px;
+    overflow: visible;
+  }
+  .nav-brand {
+    flex: 0 0 auto;
+    margin-right: auto;
+  }
+  .nav-toggle {
+    display: flex;
+    flex-shrink: 0;
+    order: -1;
+  }
+  .nav-actions {
+    order: unset;
+    gap: 4px;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    overflow: visible;
+    max-width: calc(100vw - 120px);
+  }
+  /* Tìm kiếm: chỉ hiện nút icon, ẩn input text */
+  .search-wrap {
+    display: flex;
+    flex-shrink: 0;
+    border: 1.5px solid var(--border);
+    border-radius: 50px;
+    overflow: hidden;
+    background: transparent;
+    transition: width 0.3s ease;
+  }
+  .search-wrap input {
+    display: block;
+    width: 0;
+    padding: 6px 0;
+    font-size: 13px;
+    min-width: 0;
+    transition: width 0.3s ease, padding 0.3s ease;
+  }
+  .search-wrap.expanded input {
+    width: 130px;
+    padding: 6px 12px;
+  }
+  .search-wrap button {
+    padding: 6px 10px;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  /* Đăng nhập / Đăng ký: rút ngắn text */
+  .btn-outline {
+    padding: 6px 10px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .btn-red {
+    padding: 6px 10px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .btn-cart {
+    padding: 6px 8px;
+    font-size: 11px;
+    gap: 4px;
+    white-space: nowrap;
+  }
+  /* Ẩn chữ "Giỏ Hàng", chỉ hiện icon */
+  .btn-cart-text {
+    display: none;
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 8px 16px 14px;
+    gap: 2px;
+    box-shadow: var(--sh-sm);
+    z-index: 499;
+    width: auto;
+    overflow-x: visible;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links a {
+    padding: 10px 12px;
+    font-size: 14px;
+    white-space: normal;
+    border-radius: var(--r);
+  }
+  .nav-links a:hover {
+    background: var(--gray-100);
+  }
+}
+
+/* ── FOOTER SUBSCRIBE FORM ── */
+.footer-sub-desc {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.footer-sub-form {
+  display: flex;
+  border: 1.5px solid #ddd;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--white);
+  transition: border-color var(--tr);
+}
+
+.footer-sub-form:focus-within {
+  border-color: var(--red);
+}
+
+.footer-sub-form input {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  background: transparent;
+  color: var(--black);
+}
+
+.footer-sub-form button {
+  padding: 10px 16px;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--tr);
+  white-space: nowrap;
+}
+
+.footer-sub-form button:hover {
+  background: var(--red-dark);
+}
+
+/* ── NAV BUTTON ACTIVE STATE ── */
+.btn-nav-active {
+  border-color: var(--red) !important;
+  color: var(--red) !important;
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Blog — TKT Fashion</title>
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+<div class="topbar">Hotline: <b>0888 566 599</b> (8:30–21:30) &nbsp;|&nbsp; Miễn phí vận chuyển đơn từ 500k</div>
+<nav class="navbar">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="nav-brand">T<span>K</span>T</a>
+  
+    <div class="nav-links">
+    <a href="index.html">Trang Chủ</a>
+    <a href="product.html">Sản Phẩm</a>
+    <a href="about.html">Về Chúng Tôi</a>
+    <a href="blog.html" class="active">Blog</a>
+    <a href="contact.html">Liên Hệ</a>
+  </div>
+  <div class="nav-actions">
+    <form class="search-wrap" action="search.html" method="GET">
+      <input type="text" name="query" placeholder="Tìm kiếm...">
+      <button type="submit">🔍</button>
+    </form>
+    <a href="login.html" class="btn-outline">Đăng Nhập</a>
+    <a href="register.html" class="btn-red">Đăng Ký</a>
+    <a href="cart.html" class="btn-cart">🛒 <span class="btn-cart-text">Giỏ Hàng</span> <span class="cart-badge" id="cart-count">0</span></a>
+  </div>
+</nav>
+
+<div class="breadcrumb"><a href="index.html">Trang chủ</a> / <span>Blog</span></div>
+
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <button class="fb-btn active" onclick="filterBlog('all',this)">Tất Cả</button>
+  <button class="fb-btn" onclick="filterBlog('trend',this)">Xu Hướng</button>
+  <button class="fb-btn" onclick="filterBlog('outfit',this)">Phối Đồ</button>
+  <button class="fb-btn" onclick="filterBlog('tips',this)">Mẹo Thời Trang</button>
+  <button class="fb-btn" onclick="filterBlog('collection',this)">Bộ Sưu Tập</button>
+</div>
+
+<div class="blog-wrap">
+<!-- GRID BÀI VIẾT 3 CỘT -->
+  <div class="blog-grid" id="blog-grid">
+    <article class="blog-card" data-cat="trend">
+      <div class="blog-img"><img src="img/blog1.png" alt="Xu hướng hè 2026"></div>
+      <div class="blog-body"><span class="blog-tag">Xu Hướng</span><h3 class="blog-title">Xu hướng thời trang hè 2026</h3><p class="blog-excerpt">Phong cách tối giản đang lên ngôi với những gam màu pastel nhẹ nhàng và thiết kế clean cut được ưa chuộng nhất...</p><span class="blog-more">Đọc tiếp →</span></div>
+    </article>
+    <article class="blog-card" data-cat="outfit">
+      <div class="blog-img"><img src="img/blog2.png" alt="Phối đồ mùa hè"></div>
+      <div class="blog-body"><span class="blog-tag">Phối Đồ</span><h3 class="blog-title">5 cách phối đồ mùa hè cực chất</h3><p class="blog-excerpt">Thoải mái nhưng vẫn cực chất với những gợi ý phối đồ dành cho các chàng trai năng động...</p><span class="blog-more">Đọc tiếp →</span></div>
+    </article>
+    <article class="blog-card" data-cat="tips">
+      <div class="blog-img"><img src="img/blog3.png" alt="Chọn quần jean"></div>
+      <div class="blog-body"><span class="blog-tag">Mẹo Thời Trang</span><h3 class="blog-title">Chọn quần jean chuẩn form dáng</h3><p class="blog-excerpt">Bí quyết chọn quần jean phù hợp mọi dáng người từ chuyên gia thời trang TKT Fashion...</p><span class="blog-more">Đọc tiếp →</span></div>
+    </article>
+    <article class="blog-card" data-cat="collection">
+      <div class="blog-img"><img src="img/blog4.png" alt="BST Thu Đông 2026"></div>
+      <div class="blog-body"><span class="blog-tag">Bộ Sưu Tập</span><h3 class="blog-title">BST Thu Đông 2026 của TKT</h3><p class="blog-excerpt">Ra mắt bộ sưu tập mới với chất liệu cao cấp, thiết kế tinh tế mang đậm phong cách TKT...</p><span class="blog-more">Đọc tiếp →</span></div>
+    </article>
+    <article class="blog-card" data-cat="trend">
+      <div class="blog-img"><img src="img/blog5.png" alt="Màu sắc mùa thu"></div>
+      <div class="blog-body"><span class="blog-tag">Xu Hướng</span><h3 class="blog-title">Màu sắc hot nhất mùa thu 2026</h3><p class="blog-excerpt">Khám phá bảng màu fashionista ưa chuộng và cách phối chuẩn không cần chỉnh...</p><span class="blog-more">Đọc tiếp →</span></div>
+    </article>
+    <article class="blog-card" data-cat="outfit">
+      <div class="blog-img"><img src="img/blog6.png" alt="Outfit công sở"></div>
+      <div class="blog-body"><span class="blog-tag">Phối Đồ</span><h3 class="blog-title">Outfit công sở lịch lãm cho nam</h3><p class="blog-excerpt">Trang phục công sở nam vừa chuyên nghiệp vừa thoải mái, phù hợp mọi môi trường...</p><span class="blog-more">Đọc tiếp →</span></div>
+    </article>
+    <article class="blog-card" data-cat="tips">
+      <div class="blog-img"><img src="img/blog7.png" alt="Phong cách lịch lãm"></div>
+      <div class="blog-body"><span class="blog-tag">Mẹo Thời Trang</span><h3 class="blog-title">Phong cách lịch lãm — Tinh tế từng chi tiết</h3><p class="blog-excerpt">Bí quyết xây dựng phong cách nam tính, lịch lãm và chỉn chu từ chuyên gia TKT Fashion...</p><span class="blog-more">Đọc tiếp →</span></div>
+    </article>
+    <article class="blog-card" data-cat="collection">
+      <div class="blog-img"><img src="img/blog8.png" alt="TKT Summer Collab 2026"></div>
+      <div class="blog-body"><span class="blog-tag">Bộ Sưu Tập</span><h3 class="blog-title">TKT x Summer Collab 2026</h3><p class="blog-excerpt">Hợp tác đặc biệt với các nhà thiết kế trẻ mang đến những item độc quyền không thể bỏ lỡ...</p><span class="blog-more">Đọc tiếp →</span></div>
+    </article>
+    <article class="blog-card" data-cat="tips">
+      <div class="blog-img"><img src="img/blog9.png" alt="Bảo quản quần áo"></div>
+      <div class="blog-body"><span class="blog-tag">Mẹo Thời Trang</span><h3 class="blog-title">Cách bảo quản quần áo đúng cách</h3><p class="blog-excerpt">Giữ trang phục luôn như mới với những mẹo bảo quản đơn giản mà hiệu quả từ TKT...</p><span class="blog-more">Đọc tiếp →</span></div>
+    </article>
+    <article class="blog-card" data-cat="outfit">
+      <div class="blog-img"><img src="img/blog10.png" alt="Streetwear 2026"></div>
+      <div class="blog-body"><span class="blog-tag">Phối Đồ</span><h3 class="blog-title">Streetwear 2026 — Phong cách đường phố</h3><p class="blog-excerpt">Khám phá xu hướng streetwear đang làm mưa làm gió trong giới trẻ Việt Nam năm 2026...</p><span class="blog-more">Đọc tiếp →</span></div>
+    </article>
+  </div>
+</div>
+<script>
+function getCart(){return JSON.parse(localStorage.getItem('tkt_cart')||'[]');}
+function updateBadge(){const n=getCart().reduce((s,i)=>s+i.qty,0);document.querySelectorAll('.cart-badge,#cart-count').forEach(el=>el.textContent=n||0);}
+function showToast(msg,type=''){const t=document.getElementById('toast');t.textContent=msg;t.className='toast '+(type||'');setTimeout(()=>t.classList.add('show'),10);setTimeout(()=>t.classList.remove('show'),3000);}
+
+function filterBlog(cat, el) {
+  document.querySelectorAll('.fb-btn').forEach(b => b.classList.remove('active'));
+  if (el) el.classList.add('active');
+  document.querySelectorAll('#blog-grid .blog-card').forEach(c => {
+    c.style.display = (cat === 'all' || c.dataset.cat === cat) ? 'flex' : 'none';
+  });
+}
+
+updateBadge();
+</script>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">T<span>K</span>T</div>
+      <p class="footer-desc">Hệ thống thời trang hướng tới phong cách nam tính, lịch lãm và trẻ trung. Chất lượng luôn là ưu tiên hàng đầu.</p>
+    </div>
+    <div class="footer-col"><h4>Nhóm Liên Kết</h4><ul><li onclick="location.href='index.html'">Trang chủ</li><li onclick="location.href='product.html'">Sản phẩm mới</li><li onclick="location.href='about.html'">Về chúng tôi</li><li onclick="location.href='blog.html'">Blog thời trang</li><li onclick="location.href='contact.html'">Liên hệ</li></ul></div>
+    <div class="footer-col"><h4>Thông Tin Liên Hệ</h4><p>📍 TP. Hồ Chí Minh, Việt Nam</p><p>📞 0888 566 599</p><p>✉️ tkt.fashion@gmail.com</p><p>🕘 08:30 – 21:30 (Mỗi ngày)</p></div>
+    <div class="footer-col">
+      <h4>Đăng Ký Nhận Tin</h4>
+      <p class="footer-sub-desc">Để cập nhật sản phẩm mới, nhận thông tin ưu đãi đặc biệt và giảm giá.</p>
+      <div class="footer-sub-form">
+        <input type="email" placeholder="Nhập email của bạn">
+        <button onclick="showToast('Đăng ký thành công! 🎉','green')">Đăng Ký</button>
+      </div>
+    </div>
+  </div>
+  <hr class="footer-hr"><div class="footer-bottom"><span>© 2026 TKT Fashion. All rights reserved.</span><span>Thiết kế bởi TKT Team</span></div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+  var btn = document.getElementById('nav-toggle');
+  var links = document.querySelector('.nav-links');
+  if(!btn || !links) return;
+  btn.addEventListener('click', function(){
+    btn.classList.toggle('open');
+    links.classList.toggle('open');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      btn.classList.remove('open');
+      links.classList.remove('open');
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var wrap = document.querySelector('.search-wrap');
+  var inp  = wrap ? wrap.querySelector('input') : null;
+  var btn  = wrap ? wrap.querySelector('button') : null;
+  if (!wrap || !inp || !btn) return;
+  function isMobile(){ return window.innerWidth <= 600; }
+  btn.addEventListener('click', function(e){
+    if (!isMobile()) return;
+    if (!wrap.classList.contains('expanded')) {
+      e.preventDefault();
+      wrap.classList.add('expanded');
+      inp.focus();
+    }
+    // nếu đã expanded và có text -> submit (form tự submit)
+    // nếu không có text -> đóng lại
+    else if (!inp.value.trim()) {
+      e.preventDefault();
+      wrap.classList.remove('expanded');
+    }
+  });
+  document.addEventListener('click', function(e){
+    if (isMobile() && !wrap.contains(e.target)){
+      wrap.classList.remove('expanded');
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Giỏ Hàng — TKT Fashion</title>
+<link rel="stylesheet" href="cart.css">
+</head>
+<body>
+<div class="topbar">Hotline: <b>0888 566 599</b> (8:30–21:30) &nbsp;|&nbsp; Miễn phí vận chuyển đơn từ 500k</div>
+<nav class="navbar">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="nav-brand">T<span>K</span>T</a>
+  
+    <div class="nav-links">
+    <a href="index.html">Trang Chủ</a>
+    <a href="product.html">Sản Phẩm</a>
+    <a href="about.html">Về Chúng Tôi</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Liên Hệ</a>
+  </div>
+  <div class="nav-actions">
+    <form class="search-wrap" action="search.html" method="GET">
+      <input type="text" name="query" placeholder="Tìm kiếm...">
+      <button type="submit">🔍</button>
+    </form>
+    <a href="login.html" class="btn-outline">Đăng Nhập</a>
+    <a href="register.html" class="btn-red">Đăng Ký</a>
+    <a href="cart.html" class="btn-cart btn-nav-active">🛒 <span class="btn-cart-text">Giỏ Hàng</span> <span class="cart-badge" id="cart-count">0</span></a>
+  </div>
+</nav>
+
+<div class="breadcrumb"><a href="index.html">Trang chủ</a> / <span>Giỏ hàng</span></div>
+
+<div class="cart-layout">
+  <!-- ITEMS -->
+  <div>
+    <h2 class="cart-title">Giỏ Hàng Của Bạn</h2>
+    <div id="cart-list"></div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div>
+    <div class="summary-card">
+      <h3 class="sum-title">Tóm Tắt Đơn Hàng</h3>
+      <div class="sum-row"><span>Tạm tính</span><span id="subtotal">0đ</span></div>
+      <div class="sum-row"><span>Phí vận chuyển</span><span id="ship-fee" class="free">Miễn phí</span></div>
+      <div class="sum-row"><span>Giảm giá</span><span id="discount-row">—</span></div>
+      <div class="sum-row total"><span>Tổng cộng</span><span id="total">0đ</span></div>
+
+      <button class="btn-checkout" onclick="doCheckout()">Thanh Toán Ngay →</button>
+      <button class="btn-continue" onclick="location.href='product.html'">← Tiếp tục mua sắm</button>
+      <button class="btn-clear" onclick="clearCart()">🗑 Xóa giỏ hàng</button>
+
+      <div style="margin-top:20px;border-top:1px solid var(--border);padding-top:16px">
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray-500);margin-bottom:10px">Mã Giảm Giá</p>
+        <div class="promo-wrap">
+          <input type="text" id="promo-input" placeholder="Nhập mã khuyến mãi">
+          <button onclick="applyPromo()">Áp Dụng</button>
+        </div>
+        <p id="promo-msg" style="font-size:12.5px;margin-top:8px;color:var(--gray-500)"></p>
+        <p style="font-size:12px;color:var(--gray-300);margin-top:6px">Thử: <b>TKT10</b> · <b>TKT50K</b> · <b>FREESHIP</b></p>
+      </div>
+
+      <div style="margin-top:20px;border-top:1px solid var(--border);padding-top:16px">
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray-500);margin-bottom:12px">Chúng Tôi Chấp Nhận</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="background:var(--gray-100);border:1px solid var(--border);padding:4px 10px;border-radius:4px;font-size:12px;font-weight:600">💳 VISA</span>
+          <span style="background:var(--gray-100);border:1px solid var(--border);padding:4px 10px;border-radius:4px;font-size:12px;font-weight:600">💳 MasterCard</span>
+          <span style="background:var(--gray-100);border:1px solid var(--border);padding:4px 10px;border-radius:4px;font-size:12px;font-weight:600">📱 MoMo</span>
+          <span style="background:var(--gray-100);border:1px solid var(--border);padding:4px 10px;border-radius:4px;font-size:12px;font-weight:600">🏠 COD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">T<span>K</span>T</div>
+      <p class="footer-desc">Hệ thống thời trang hướng tới phong cách nam tính, lịch lãm và trẻ trung. Chất lượng luôn là ưu tiên hàng đầu.</p>
+    </div>
+    <div class="footer-col"><h4>Nhóm Liên Kết</h4><ul><li onclick="location.href='index.html'">Trang chủ</li><li onclick="location.href='product.html'">Sản phẩm mới</li><li onclick="location.href='about.html'">Về chúng tôi</li><li onclick="location.href='blog.html'">Blog thời trang</li><li onclick="location.href='contact.html'">Liên hệ</li></ul></div>
+    <div class="footer-col"><h4>Thông Tin Liên Hệ</h4><p>📍 TP. Hồ Chí Minh, Việt Nam</p><p>📞 0888 566 599</p><p>✉️ tkt.fashion@gmail.com</p><p>🕘 08:30 – 21:30 (Mỗi ngày)</p></div>
+    <div class="footer-col">
+      <h4>Đăng Ký Nhận Tin</h4>
+      <p class="footer-sub-desc">Để cập nhật sản phẩm mới, nhận thông tin ưu đãi đặc biệt và giảm giá.</p>
+      <div class="footer-sub-form">
+        <input type="email" placeholder="Nhập email của bạn">
+        <button onclick="showToast('Đăng ký thành công! 🎉','green')">Đăng Ký</button>
+      </div>
+    </div>
+  </div>
+  <hr class="footer-hr"><div class="footer-bottom"><span>© 2026 TKT Fashion. All rights reserved.</span><span>Thiết kế bởi TKT Team</span></div>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const PRODUCT_IMGS={"Áo da nam": "img/aodanam.jpg", "Áo Vest Lịch Lãm": "img/aovestll.jpeg","Áo Vest Classic": "img/aovestlichlam1.webp", "Áo Polo Nam Premium": "img/aopolonampremium.webp", "Quần Jeans Smart Fit": "img/jeanssmartfit.jpg", "Sơ Mi Linen Cao Cấp": "img/somiketay.jpg", "Jeans Sidetab Xanh Đậm": "img/jeanssidetapxanhdam.webp", "Áo Khoác Thu Đông": "img/aokhoacthudong.webp", "Quần Âu Kẻ Sọc Công Sở": "img/quanaukesoc.jpg", "Sơ Mi Oxford Xanh": "img/aosomioxfordxanh.webp", "Quần Len Thu Đông": "img/quanlenthudong.webp", "Polo Classic Thêu Logo": "img/aopolotheulogo.webp", "Quần Jeans Baggy": "img/jeansbaggy.jpg", "Quần Cargo Streetwear": "img/quancargostreetwear.jpg", "Sơ Mi Kẻ Sọc Classic": "img/somitrang.jpg", "Jeans Straight Fit": "img/jeansstraightfit.webp", "Quần Short Kaki Mùa Hè": "img/shortkakimuahe.webp", "Đồng Hồ Dây Da TKT": "img/donghodayda.jpg", "Polo Thêu Ngực": "img/polotheunguc.webp", "Sơ Mi Flannel Kẻ Ô": "img/somikeo.webp", "Thắt Lưng Da Cao Cấp": "img/thatlungdacaocap.webp", "Áo Thun Oversize In Hình": "img/aothunoversizeinhinh.webp", "Quần Jeans Ripped Gối": "img/jeansripperrachgoi.jpg", "Áo Thun Cổ Tròn Trơn": "img/aophongcotron.webp", "Sơ Mi Oversize Streetwear": "img/somioversize.webp", "Đồng Hồ Minimalist": "img/donghominimalist.webp", "Sơ Mi Linen Mùa Hè": "img/somilienmuahe.webp", "Quần Jogger Thun": "img/joggerthun.webp", "Polo Kẻ Sọc Ngang": "img/polokesocngang.webp", "Ví Da Nam Slim": "img/vidanam.webp", "Sơ Mi Công Sở Oxford": "img/somicongsooxford.webp", "Áo cộc tay kẻ": "img/aococtayke.png", "Áo polo trắng cộc tay": "img/aopolonam.webp", "Áo sơ mi trắng phối cổ đen": "img/aosomicoden.jpg", "Áo thun cộc tay": "img/aophongcotron.webp", "Áo phong cách thể thao": "img/aothethao.jpg", "Áo Bomber nam 2 lớp": "img/aobomber.jpg", "Áo Vest nam lịch lãm": "img/aovest.jpg", "Áo khoác logo cá sấu": "img/aocasau.webp", "Áo polo xám cộc tay": "img/aopoloxam.webp", "Áo sơ mi kẻ phối tay": "img/somiketay.jpg", "Áo sơ mi cổ trụ": "img/somicotru.jpg", "Jeans Slim Fit Đen": "img/jeansslimfitden.jpg", "Quần Kaki Công Sở": "img/quankakicongso.jpg", "Quần Âu Slim Fit": "img/quanauslimfit.webp", "Quần Jeans Cạp Cao": "img/jeanscapcao.jpg", "Quần Short Denim": "img/shortdemi.png", "Quần Âu Cashmere": "img/quanaucasshmer.webp", "Quần Kaki Slim Fit": "img/quankakislimfit.webp", "Quần Âu Linen Mùa Hè": "img/quanlienmuahe.webp", "Quần Short Thể Thao": "img/shortthethao.jpg", "Quần Jeans Wash Nhạt": "img/jeanswashnhat.jpg", "Mũ Lưỡi Trai TKT": "img/muluoitrai.webp", "Khăn Quàng Cổ Len": "img/khanquangcolen.webp", "Vớ Nam Cao Cấp": "img/vonamcaocap.webp", "Kính Mát UV400": "img/kinhmatuv400.webp", "Túi Tote Canvas TKT": "img/tuitotecanvas.webp", "Nón Bucket TKT": "img/nonbucket.webp", "Túi Messenger Da": "img/tuida.webp", "Vòng Tay Da Bện": "img/daybuoctocnam.webp", "Cà Vạt Lụa Công Sở": "img/cavatluacongso.webp", "Kính Mát Gọng Tròn": "img/kinhmatgongtron.webp", "Balo Mini Streetwear": "img/balomini.webp", "Tất Cổ Cao Len Mùa Đông": "img/tatnamcocao.jpg", "Sơ Mi Trắng Classic Fit": "img/somitrang.jpg", "Sơ Mi Công Sở Regularfit": "img/somicongsooxford.webp", "Sơ Mi Họa Tiết Nhiệt Đới": "img/somikeo.webp", "Áo Khoác Bomber": "img/aobomber.jpg", "Polo Nữ Slim Fit": "img/aopolonam.webp", "Polo Màu Đen Streetwear": "img/aopoloxam.webp", "Polo Premium Cotton": "img/polo.png"};
+const ICONS={'sơ mi':'👔','polo':'👕','jeans':'👖','quần':'👖','áo khoác':'🧥','thắt lưng':'🪢','mũ':'🧢','ví':'👜','vớ':'🧦','đồng hồ':'⌚','khăn':'🧣'};
+function getIcon(n){const l=n.toLowerCase();for(const[k,v] of Object.entries(ICONS)){if(l.includes(k))return v;}return '🛍';}
+function getCart(){return JSON.parse(localStorage.getItem('tkt_cart')||'[]');}
+function saveCart(c){localStorage.setItem('tkt_cart',JSON.stringify(c));}
+function parsePrice(s){return parseInt(s.replace(/[^\d]/g,''))||0;}
+
+let discountAmt=0;
+
+function render(){
+  const cart=getCart();
+  const list=document.getElementById('cart-list');
+  const subEl=document.getElementById('subtotal');
+  const shipEl=document.getElementById('ship-fee');
+  const totalEl=document.getElementById('total');
+  const discEl=document.getElementById('discount-row');
+  if(!list) return;
+
+  if(cart.length===0){
+    list.innerHTML=`<div class="cart-empty"><div class="ce-icon">🛒</div><h3>Giỏ hàng trống!</h3><p>Hãy thêm sản phẩm yêu thích vào giỏ hàng</p><button class="btn-go-shop" onclick="location.href='product.html'">Mua Sắm Ngay →</button></div>`;
+    subEl.textContent='0đ'; totalEl.textContent='0đ';
+    shipEl.textContent='Miễn phí'; shipEl.className='free';
+    discEl.textContent='—';
+    updateBadge(); return;
+  }
+
+  let sub=0;
+  list.innerHTML=cart.map((item,i)=>{
+    const p=parsePrice(item.price); const line=p*item.qty; sub+=line;
+    return `<div class="cart-item">
+      <div class="ci-thumb">${(item.img||PRODUCT_IMGS[item.name]) ? `<img src="${item.img||PRODUCT_IMGS[item.name]}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">` : getIcon(item.name)}</div>
+      <div>
+        <p class="ci-name">${item.name}</p>
+        <p class="ci-price">${item.price} / sản phẩm</p>
+        <div class="qty-ctrl">
+          <button class="qty-btn" onclick="changeQty(${i},-1)">−</button>
+          <span class="qty-num">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${i},1)">+</button>
+        </div>
+      </div>
+      <div class="ci-right">
+        <p class="ci-total">${line.toLocaleString('vi-VN')}đ</p>
+        <button class="ci-remove" onclick="removeItem(${i})">✕ Xóa</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  const ship=sub>=500000?0:30000;
+  const total=Math.max(0,sub+ship-discountAmt);
+  subEl.textContent=sub.toLocaleString('vi-VN')+'đ';
+  shipEl.textContent=ship===0?'Miễn phí 🎉':ship.toLocaleString('vi-VN')+'đ';
+  shipEl.className=ship===0?'free':'';
+  discEl.textContent=discountAmt>0?'-'+discountAmt.toLocaleString('vi-VN')+'đ':'—';
+  totalEl.textContent=total.toLocaleString('vi-VN')+'đ';
+  updateBadge();
+}
+
+function updateBadge(){
+  const n=getCart().reduce((s,i)=>s+i.qty,0);
+  document.querySelectorAll('.cart-badge,#cart-count').forEach(el=>el.textContent=n||0);
+}
+function changeQty(i,d){let c=getCart();c[i].qty+=d;if(c[i].qty<=0)c.splice(i,1);saveCart(c);render();}
+function removeItem(i){let c=getCart();c.splice(i,1);saveCart(c);render();showToast('Đã xóa sản phẩm khỏi giỏ hàng');}
+function clearCart(){if(!confirm('Xóa toàn bộ giỏ hàng?'))return;localStorage.removeItem('tkt_cart');discountAmt=0;render();}
+function addCart(name,price,img){let c=getCart();const ex=c.find(i=>i.name===name);if(ex)ex.qty++;else c.push({name,price,img:img||'',qty:1});saveCart(c);render();showToast('Đã thêm "'+name+'" vào giỏ! 🛒');}
+
+const PROMOS={'TKT10':{pct:10,label:'Giảm 10%'},'TKT50K':{amt:50000,label:'Giảm 50.000đ'},'FREESHIP':{ship:true,label:'Miễn phí ship'}};
+function applyPromo(){
+  const code=document.getElementById('promo-input').value.trim().toUpperCase();
+  const p=PROMOS[code];
+  const msg=document.getElementById('promo-msg');
+  if(!p){msg.style.color='var(--red)';msg.textContent='❌ Mã không hợp lệ!';return;}
+  const sub=getCart().reduce((s,i)=>s+parsePrice(i.price)*i.qty,0);
+  if(p.pct) discountAmt=Math.floor(sub*p.pct/100);
+  else if(p.amt) discountAmt=p.amt;
+  else discountAmt=0;
+  msg.style.color='#27ae60';
+  msg.textContent='✓ Áp dụng mã "'+code+'" — '+p.label;
+  render();
+  showToast('Áp dụng mã thành công! '+p.label,'green');
+}
+
+function doCheckout(){
+  const cart=getCart();
+  if(!cart.length){showToast('Giỏ hàng trống!','red');return;}
+  showToast('✅ Đặt hàng thành công! Cảm ơn bạn đã mua sắm tại TKT 🎉','green');
+  setTimeout(()=>{
+    localStorage.removeItem('tkt_cart');
+    discountAmt=0;
+    render();
+    document.getElementById('promo-msg').textContent='';
+    document.getElementById('promo-input').value='';
+  },2000);
+}
+
+function showToast(msg,type=''){const t=document.getElementById('toast');t.textContent=msg;t.className='toast '+(type||'');setTimeout(()=>t.classList.add('show'),10);setTimeout(()=>t.classList.remove('show'),3200);}
+
+render();
+</script>
+<script>
+(function(){
+  var btn = document.getElementById('nav-toggle');
+  var links = document.querySelector('.nav-links');
+  if(!btn || !links) return;
+  btn.addEventListener('click', function(){
+    btn.classList.toggle('open');
+    links.classList.toggle('open');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      btn.classList.remove('open');
+      links.classList.remove('open');
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var wrap = document.querySelector('.search-wrap');
+  var inp  = wrap ? wrap.querySelector('input') : null;
+  var btn  = wrap ? wrap.querySelector('button') : null;
+  if (!wrap || !inp || !btn) return;
+  function isMobile(){ return window.innerWidth <= 600; }
+  btn.addEventListener('click', function(e){
+    if (!isMobile()) return;
+    if (!wrap.classList.contains('expanded')) {
+      e.preventDefault();
+      wrap.classList.add('expanded');
+      inp.focus();
+    }
+    // nếu đã expanded và có text -> submit (form tự submit)
+    // nếu không có text -> đóng lại
+    else if (!inp.value.trim()) {
+      e.preventDefault();
+      wrap.classList.remove('expanded');
+    }
+  });
+  document.addEventListener('click', function(e){
+    if (isMobile() && !wrap.contains(e.target)){
+      wrap.classList.remove('expanded');
+    }
+  });
+})();
+</script>
+</body>
+</html>

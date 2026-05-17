@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Đăng Ký — TKT Fashion</title>
+<link rel="stylesheet" href="register.css">
+</head>
+<body>
+<div class="topbar">Hotline: <b>0888 566 599</b> (8:30–21:30) &nbsp;|&nbsp; Miễn phí vận chuyển đơn từ 500k</div>
+<nav class="navbar">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="nav-brand">T<span>K</span>T</a>
+  
+    <div class="nav-links">
+    <a href="index.html">Trang Chủ</a>
+    <a href="product.html">Sản Phẩm</a>
+    <a href="about.html">Về Chúng Tôi</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Liên Hệ</a>
+  </div>
+  <div class="nav-actions">
+    <form class="search-wrap" action="search.html" method="GET">
+      <input type="text" name="query" placeholder="Tìm kiếm...">
+      <button type="submit">🔍</button>
+    </form>
+    <a href="login.html" class="btn-outline">Đăng Nhập</a>
+    <a href="register.html" class="btn-red btn-nav-active">Đăng Ký</a>
+    <a href="cart.html" class="btn-cart">🛒 <span class="btn-cart-text">Giỏ Hàng</span> <span class="cart-badge" id="cart-count">0</span></a>
+  </div>
+</nav>
+
+<div class="auth-page">
+  <div class="auth-card">
+    <h2>Tạo Tài Khoản</h2>
+    <p class="auth-sub">Đăng ký để mua sắm dễ dàng hơn tại TKT Fashion!</p>
+    <div class="form-group">
+      <label>Tên Đăng Nhập *</label>
+      <input type="text" id="rg-user" placeholder="Tối thiểu 3 ký tự" oninput="clearErr('rg-user')">
+      <span class="field-err" id="err-rg-user"></span>
+    </div>
+    <div class="form-group">
+      <label>Địa Chỉ Email *</label>
+      <input type="email" id="rg-email" placeholder="example@email.com" oninput="clearErr('rg-email')">
+      <span class="field-err" id="err-rg-email"></span>
+    </div>
+    <div class="form-group">
+      <label>Số Điện Thoại <span class="opt">(tùy chọn)</span></label>
+      <input type="tel" id="rg-phone" placeholder="0888 xxx xxx">
+    </div>
+    <div class="form-group">
+      <label>Mật Khẩu * <span class="opt">(tối thiểu 6 ký tự)</span></label>
+      <input type="password" id="rg-pass" placeholder="Nhập mật khẩu" oninput="clearErr('rg-pass')">
+      <span class="field-err" id="err-rg-pass"></span>
+    </div>
+    <div class="form-group">
+      <label>Nhập Lại Mật Khẩu *</label>
+      <input type="password" id="rg-confirm" placeholder="Xác nhận mật khẩu" oninput="clearErr('rg-confirm')">
+      <span class="field-err" id="err-rg-confirm"></span>
+    </div>
+    <button class="btn-submit" onclick="doRegister()">Tạo Tài Khoản</button>
+    <div class="auth-div">hoặc</div>
+    <p class="auth-foot">Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></p>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">T<span>K</span>T</div>
+      <p class="footer-desc">Hệ thống thời trang hướng tới phong cách nam tính, lịch lãm và trẻ trung. Chất lượng luôn là ưu tiên hàng đầu.</p>
+    </div>
+    <div class="footer-col"><h4>Nhóm Liên Kết</h4><ul><li onclick="location.href='index.html'">Trang chủ</li><li onclick="location.href='product.html'">Sản phẩm mới</li><li onclick="location.href='about.html'">Về chúng tôi</li><li onclick="location.href='blog.html'">Blog thời trang</li><li onclick="location.href='contact.html'">Liên hệ</li></ul></div>
+    <div class="footer-col"><h4>Thông Tin Liên Hệ</h4><p>📍 TP. Hồ Chí Minh, Việt Nam</p><p>📞 0888 566 599</p><p>✉️ tkt.fashion@gmail.com</p><p>🕘 08:30 – 21:30 (Mỗi ngày)</p></div>
+    <div class="footer-col">
+      <h4>Đăng Ký Nhận Tin</h4>
+      <p class="footer-sub-desc">Để cập nhật sản phẩm mới, nhận thông tin ưu đãi đặc biệt và giảm giá.</p>
+      <div class="footer-sub-form">
+        <input type="email" placeholder="Nhập email của bạn">
+        <button onclick="showToast('Đăng ký thành công! 🎉','green')">Đăng Ký</button>
+      </div>
+    </div>
+  </div>
+  <hr class="footer-hr"><div class="footer-bottom"><span>© 2026 TKT Fashion. All rights reserved.</span><span>Thiết kế bởi TKT Team</span></div>
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+function getCart(){return JSON.parse(localStorage.getItem('tkt_cart')||'[]');}
+function updateBadge(){const n=getCart().reduce((s,i)=>s+i.qty,0);document.querySelectorAll('.cart-badge,#cart-count').forEach(el=>el.textContent=n||0);}
+function showToast(msg,type=''){const t=document.getElementById('toast');t.textContent=msg;t.className='toast '+(type||'');setTimeout(()=>t.classList.add('show'),10);setTimeout(()=>t.classList.remove('show'),3000);}
+function setErr(id, msg) {
+  const el = document.getElementById(id);
+  el.classList.add('input-error');
+  const errEl = document.getElementById('err-' + id);
+  if (errEl) { errEl.textContent = msg; errEl.style.display = 'block'; }
+}
+
+function clearErr(id) {
+  const el = document.getElementById(id);
+  el.classList.remove('input-error');
+  const errEl = document.getElementById('err-' + id);
+  if (errEl) { errEl.textContent = ''; errEl.style.display = 'none'; }
+}
+
+function doRegister(){
+  let valid = true;
+  const user    = document.getElementById('rg-user').value.trim();
+  const email   = document.getElementById('rg-email').value.trim();
+  const pass    = document.getElementById('rg-pass').value.trim();
+  const confirm = document.getElementById('rg-confirm').value.trim();
+
+  // Reset tất cả
+  ['rg-user','rg-email','rg-pass','rg-confirm'].forEach(id => clearErr(id));
+
+  if (!user) {
+    setErr('rg-user', 'Vui lòng nhập tên đăng nhập'); valid = false;
+  } else if (user.length < 3) {
+    setErr('rg-user', 'Tên đăng nhập tối thiểu 3 ký tự'); valid = false;
+  }
+
+  if (!email) {
+    setErr('rg-email', 'Vui lòng nhập địa chỉ email'); valid = false;
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    setErr('rg-email', 'Địa chỉ email không hợp lệ'); valid = false;
+  }
+
+  if (!pass) {
+    setErr('rg-pass', 'Vui lòng nhập mật khẩu'); valid = false;
+  } else if (pass.length < 6) {
+    setErr('rg-pass', 'Mật khẩu tối thiểu 6 ký tự'); valid = false;
+  }
+
+  if (!confirm) {
+    setErr('rg-confirm', 'Vui lòng nhập lại mật khẩu'); valid = false;
+  } else if (pass && confirm !== pass) {
+    setErr('rg-confirm', 'Mật khẩu nhập lại không khớp'); valid = false;
+  }
+
+  if (!valid) return;
+
+  let users = JSON.parse(localStorage.getItem('tkt_users') || '[]');
+  if (users.find(u => u.username === user)) {
+    setErr('rg-user', 'Tên đăng nhập đã tồn tại'); return;
+  }
+  if (users.find(u => u.email === email)) {
+    setErr('rg-email', 'Email này đã được sử dụng'); return;
+  }
+
+  users.push({username: user, email, password: pass});
+  localStorage.setItem('tkt_users', JSON.stringify(users));
+  showToast('Đăng ký thành công! Chào mừng ' + user + ' 🎉', 'green');
+  setTimeout(() => location.href = 'login.html', 1800);
+}
+updateBadge();
+</script>
+<script>
+(function(){
+  var btn = document.getElementById('nav-toggle');
+  var links = document.querySelector('.nav-links');
+  if(!btn || !links) return;
+  btn.addEventListener('click', function(){
+    btn.classList.toggle('open');
+    links.classList.toggle('open');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      btn.classList.remove('open');
+      links.classList.remove('open');
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var wrap = document.querySelector('.search-wrap');
+  var inp  = wrap ? wrap.querySelector('input') : null;
+  var btn  = wrap ? wrap.querySelector('button') : null;
+  if (!wrap || !inp || !btn) return;
+  function isMobile(){ return window.innerWidth <= 600; }
+  btn.addEventListener('click', function(e){
+    if (!isMobile()) return;
+    if (!wrap.classList.contains('expanded')) {
+      e.preventDefault();
+      wrap.classList.add('expanded');
+      inp.focus();
+    }
+    // nếu đã expanded và có text -> submit (form tự submit)
+    // nếu không có text -> đóng lại
+    else if (!inp.value.trim()) {
+      e.preventDefault();
+      wrap.classList.remove('expanded');
+    }
+  });
+  document.addEventListener('click', function(e){
+    if (isMobile() && !wrap.contains(e.target)){
+      wrap.classList.remove('expanded');
+    }
+  });
+})();
+</script>
+</body>
+</html>

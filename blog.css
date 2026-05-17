@@ -1,0 +1,37 @@
+@import url('_base.css');
+
+/* ── FILTER BAR ── */
+.filter-bar{background:var(--white);border-bottom:1px solid var(--border);padding:0 40px;display:flex;overflow-x:auto}
+.fb-btn{padding:15px 18px;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray-500);background:none;border:none;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;transition:color var(--tr),border-color var(--tr)}
+.fb-btn.active,.fb-btn:hover{color:var(--red);border-bottom-color:var(--red)}
+
+/* ── WRAPPER ── */
+.blog-wrap{max-width:1200px;margin:0 auto;padding:48px 40px 70px}
+
+/* ── BLOG GRID 3 CỘT ── */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:48px}
+.blog-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;transition:box-shadow var(--tr),transform var(--tr);cursor:pointer;display:flex;flex-direction:column}
+.blog-card:hover{box-shadow:var(--sh-lg);transform:translateY(-4px)}
+.blog-img{height:200px;flex-shrink:0;overflow:hidden}
+.blog-img img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.blog-card:hover .blog-img img{transform:scale(1.05)}
+.blog-img.b1{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460)}
+.blog-img.b2{background:linear-gradient(135deg,#2c1810,#6b2737,rgba(192,57,43,.25))}
+.blog-img.b3{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364)}
+.blog-img.b4{background:linear-gradient(135deg,#232526,#414345)}
+.blog-body{padding:20px;flex:1;display:flex;flex-direction:column}
+.blog-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--red);background:rgba(192,57,43,.08);padding:3px 10px;border-radius:2px;margin-bottom:10px;width:fit-content}
+.blog-title{font-family:var(--dp);font-size:17px;font-weight:700;line-height:1.4;margin-bottom:8px;color:var(--black)}
+.blog-excerpt{font-size:13.5px;color:var(--gray-500);line-height:1.7;margin-bottom:14px;flex:1}
+.blog-more{font-size:13px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.4px;display:inline-flex;align-items:center;gap:4px;transition:gap var(--tr);margin-top:auto}
+.blog-card:hover .blog-more,
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .blog-wrap{padding:32px 16px 50px}
+        .blog-grid{grid-template-columns:repeat(2,1fr);gap:18px}
+  .filter-bar{padding:0 16px}
+}
+@media(max-width:600px){
+  .blog-grid{grid-template-columns:1fr}
+}

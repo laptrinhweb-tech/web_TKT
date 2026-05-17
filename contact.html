@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Liên Hệ — TKT Fashion</title>
+<link rel="stylesheet" href="contact.css">
+</head>
+<body>
+<div class="topbar">Hotline: <b>0888 566 599</b> (8:30–21:30) &nbsp;|&nbsp; Miễn phí vận chuyển đơn từ 500k</div>
+<nav class="navbar">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="nav-brand">T<span>K</span>T</a>
+  
+    <div class="nav-links">
+    <a href="index.html">Trang Chủ</a>
+    <a href="product.html">Sản Phẩm</a>
+    <a href="about.html">Về Chúng Tôi</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="active">Liên Hệ</a>
+  </div>
+  <div class="nav-actions">
+    <form class="search-wrap" action="search.html" method="GET">
+      <input type="text" name="query" placeholder="Tìm kiếm...">
+      <button type="submit">🔍</button>
+    </form>
+    <a href="login.html" class="btn-outline">Đăng Nhập</a>
+    <a href="register.html" class="btn-red">Đăng Ký</a>
+    <a href="cart.html" class="btn-cart">🛒 <span class="btn-cart-text">Giỏ Hàng</span> <span class="cart-badge" id="cart-count">0</span></a>
+  </div>
+</nav>
+
+<div class="breadcrumb"><a href="index.html">Trang chủ</a> / <span>Liên Hệ</span></div>
+
+
+<div class="contact-wrap">
+  <div class="contact-grid">
+    <!-- LEFT -->
+    <div>
+      <div class="faq-card">
+        <h3 class="faq-card-title">Câu Hỏi Thường Gặp</h3>
+        <div class="faq-item">
+          <div class="faq-q"><span class="faq-icon">🚚</span> Thời gian giao hàng?</div>
+          <p class="faq-a">Đơn hàng thường giao trong 2–5 ngày làm việc trên toàn quốc.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span class="faq-icon">🔄</span> Chính sách đổi trả?</div>
+          <p class="faq-a">Đổi trả trong 7 ngày nếu sản phẩm lỗi từ nhà sản xuất.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span class="faq-icon">💳</span> Hình thức thanh toán?</div>
+          <p class="faq-a">Hỗ trợ COD, chuyển khoản và thanh toán online qua ví điện tử.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span class="faq-icon">📦</span> Phí vận chuyển?</div>
+          <p class="faq-a">Miễn phí vận chuyển cho đơn hàng từ 500.000đ trở lên.</p>
+        </div>
+      </div>
+
+      <div class="info-boxes">
+        <div class="info-box"><div class="ib-icon">📍</div><div class="ib-lbl">Địa Chỉ</div><div class="ib-val">TP. Hồ Chí Minh, VN</div></div>
+        <div class="info-box"><div class="ib-icon">📞</div><div class="ib-lbl">Hotline</div><div class="ib-val">0888 566 599</div></div>
+        <div class="info-box"><div class="ib-icon">✉️</div><div class="ib-lbl">Email</div><div class="ib-val">tkt.fashion@gmail.com</div></div>
+        <div class="info-box"><div class="ib-icon">🕘</div><div class="ib-lbl">Giờ Làm Việc</div><div class="ib-val">08:30 – 21:30</div></div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="cf-card">
+      <h3 class="cf-title">Gửi Yêu Cầu Hỗ Trợ</h3>
+      <p class="cf-desc">Nhập thông tin và vấn đề, chúng tôi sẽ phản hồi trong 24h ✉️</p>
+      <div class="form-row2">
+        <div>
+          <input type="text" id="ct-name" placeholder="Họ và tên *" oninput="clearErr('ct-name')">
+          <span class="field-err" id="err-ct-name"></span>
+        </div>
+        <div>
+          <input type="email" id="ct-email" placeholder="Địa chỉ email *" oninput="clearErr('ct-email')">
+          <span class="field-err" id="err-ct-email"></span>
+        </div>
+      </div>
+      <div class="form-field"><input type="tel" id="ct-phone" placeholder="Số điện thoại (tùy chọn)"></div>
+      <div class="form-field"><select id="ct-topic" onchange="clearErr('ct-topic')">
+        <option value="">Chọn chủ đề hỗ trợ</option>
+        <option>Đặt hàng / Thanh toán</option>
+        <option>Giao hàng / Vận chuyển</option>
+        <option>Đổi trả / Hoàn tiền</option>
+        <option>Sản phẩm / Chất lượng</option>
+        <option>Khác</option>
+      </select>
+      <span class="field-err" id="err-ct-topic"></span></div>
+      <div class="form-field"><textarea id="ct-msg" placeholder="Mô tả vấn đề của bạn..." oninput="clearErr('ct-msg')"></textarea>
+      <span class="field-err" id="err-ct-msg"></span></div>
+      <button class="btn-send" onclick="submitContact()">Gửi Yêu Cầu</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">T<span>K</span>T</div>
+      <p class="footer-desc">Hệ thống thời trang hướng tới phong cách nam tính, lịch lãm và trẻ trung. Chất lượng luôn là ưu tiên hàng đầu.</p>
+    </div>
+    <div class="footer-col"><h4>Nhóm Liên Kết</h4><ul><li onclick="location.href='index.html'">Trang chủ</li><li onclick="location.href='product.html'">Sản phẩm mới</li><li onclick="location.href='about.html'">Về chúng tôi</li><li onclick="location.href='blog.html'">Blog thời trang</li><li onclick="location.href='contact.html'">Liên hệ</li></ul></div>
+    <div class="footer-col"><h4>Thông Tin Liên Hệ</h4><p>📍 TP. Hồ Chí Minh, Việt Nam</p><p>📞 0888 566 599</p><p>✉️ tkt.fashion@gmail.com</p><p>🕘 08:30 – 21:30 (Mỗi ngày)</p></div>
+    <div class="footer-col">
+      <h4>Đăng Ký Nhận Tin</h4>
+      <p class="footer-sub-desc">Để cập nhật sản phẩm mới, nhận thông tin ưu đãi đặc biệt và giảm giá.</p>
+      <div class="footer-sub-form">
+        <input type="email" placeholder="Nhập email của bạn">
+        <button onclick="showToast('Đăng ký thành công! 🎉','green')">Đăng Ký</button>
+      </div>
+    </div>
+  </div>
+  <hr class="footer-hr"><div class="footer-bottom"><span>© 2026 TKT Fashion. All rights reserved.</span><span>Thiết kế bởi TKT Team</span></div>
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+function getCart(){return JSON.parse(localStorage.getItem('tkt_cart')||'[]');}
+function updateBadge(){const n=getCart().reduce((s,i)=>s+i.qty,0);document.querySelectorAll('.cart-badge,#cart-count').forEach(el=>el.textContent=n||0);}
+function showToast(msg,type=''){const t=document.getElementById('toast');t.textContent=msg;t.className='toast '+(type||'');setTimeout(()=>t.classList.add('show'),10);setTimeout(()=>t.classList.remove('show'),3000);}
+function setErr(id,msg){
+  const el=document.getElementById(id);
+  if(el){el.classList.add('input-error');}
+  const er=document.getElementById('err-'+id);
+  if(er){er.textContent=msg;}
+}
+function clearErr(id){
+  const el=document.getElementById(id);
+  if(el)el.classList.remove('input-error');
+  const er=document.getElementById('err-'+id);
+  if(er){er.textContent='';}
+}
+function submitContact(){
+  let valid=true;
+  const name=document.getElementById('ct-name').value.trim();
+  const email=document.getElementById('ct-email').value.trim();
+  const topic=document.getElementById('ct-topic').value;
+  const msg=document.getElementById('ct-msg').value.trim();
+  ['ct-name','ct-email','ct-topic','ct-msg'].forEach(id=>clearErr(id));
+
+  if(!name){setErr('ct-name','Vui lòng nhập họ và tên');valid=false;}
+  if(!email){setErr('ct-email','Vui lòng nhập email');valid=false;}
+  else if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){setErr('ct-email','Email không hợp lệ');valid=false;}
+  if(!topic){setErr('ct-topic','Vui lòng chọn chủ đề');valid=false;}
+  if(!msg){setErr('ct-msg','Vui lòng nhập nội dung');valid=false;}
+  else if(msg.length<10){setErr('ct-msg','Nội dung quá ngắn (tối thiểu 10 ký tự)');valid=false;}
+
+  if(!valid)return;
+  showToast('Gửi thành công! Chúng tôi sẽ phản hồi trong 24h 🎉','green');
+  ['ct-name','ct-email','ct-phone','ct-msg'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('ct-topic').value='';
+}
+updateBadge();
+</script>
+<script>
+(function(){
+  var btn = document.getElementById('nav-toggle');
+  var links = document.querySelector('.nav-links');
+  if(!btn || !links) return;
+  btn.addEventListener('click', function(){
+    btn.classList.toggle('open');
+    links.classList.toggle('open');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      btn.classList.remove('open');
+      links.classList.remove('open');
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var wrap = document.querySelector('.search-wrap');
+  var inp  = wrap ? wrap.querySelector('input') : null;
+  var btn  = wrap ? wrap.querySelector('button') : null;
+  if (!wrap || !inp || !btn) return;
+  function isMobile(){ return window.innerWidth <= 600; }
+  btn.addEventListener('click', function(e){
+    if (!isMobile()) return;
+    if (!wrap.classList.contains('expanded')) {
+      e.preventDefault();
+      wrap.classList.add('expanded');
+      inp.focus();
+    }
+    // nếu đã expanded và có text -> submit (form tự submit)
+    // nếu không có text -> đóng lại
+    else if (!inp.value.trim()) {
+      e.preventDefault();
+      wrap.classList.remove('expanded');
+    }
+  });
+  document.addEventListener('click', function(e){
+    if (isMobile() && !wrap.contains(e.target)){
+      wrap.classList.remove('expanded');
+    }
+  });
+})();
+</script>
+</body>
+</html>
